@@ -7,6 +7,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import pages.base.BasePage;
 import pages.listing.RealtListingPage;
+import pages.login.LoginPage;
 import pages.realt_home.RealtHomePage;
 
 import static common.Config.CLEAR_COOKIES_AND_STORAGE;
@@ -17,6 +18,7 @@ public class BaseTest {
     protected BasePage basePage = new BasePage(driver);
     protected RealtHomePage realtHomePage = new RealtHomePage(driver);
     protected RealtListingPage realtListingPage = new RealtListingPage(driver);
+    protected LoginPage loginPage = new LoginPage(driver);
 
 
     @AfterTest
