@@ -3,7 +3,8 @@
 <suite name="All Test Suite">
     <test name="C:/Users/ITQ/Documents/SeleniumPageObject">
         <classes>
-            <class name="tests.searchappartment.SearchApartmentTest"/>
+            <class name="tests.login.LoginTest"/>
+            <class name="tests.createcourse.CreateCourse"/>
         </classes>
     </test>
 </suite>
