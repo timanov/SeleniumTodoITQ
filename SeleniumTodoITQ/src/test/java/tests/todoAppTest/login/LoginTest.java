@@ -1,4 +1,4 @@
-package tests.login;
+package tests.todoAppTest.login;
 
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
@@ -10,11 +10,11 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void id1() {
-        loginToTodo(); //Проверка на вход и выход из приложения под админом
-        loginToTodoUser(); //Проверка на вход и выход из приложения под пользователем
+        loginToTodoAdmin(); //Авторизация под админом
+        loginToTodoUser(); //Авторизация под пользователем
     }
 
-    public void loginToTodo() {
+    public void loginToTodoAdmin() {
         basePage.open(TODO_HOME_PAGE);
         loginPage.setLogin(LOGIN_ADMIN);
         loginPage.setPassword(PASSWORD_ADMIN);

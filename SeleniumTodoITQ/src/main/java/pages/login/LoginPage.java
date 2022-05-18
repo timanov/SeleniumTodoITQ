@@ -15,6 +15,7 @@ public class LoginPage extends BasePage {
     private final By passwordField = By.xpath("/html/body/app-root/div/app-login/form/div/input[2]");
     private final By buttonEnter = By.xpath("/html/body/app-root/div/app-login/form/div/button[1]");
     private final By buttonExit = By.xpath("/html/body/app-root/app-menu/header/nav/ul[2]/li[7]/a");
+    private final By buttonNewUser = By.xpath("/html/body/app-root/app-menu/header/nav/ul[2]/li[5]/a");
     private String login = "";
     private String password = "";
 
@@ -33,15 +34,22 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage clickLoginBtn() {
-        log.info("Нажимаем кнопку войти");
+        log.info("Нажимаем кнопку [Войти]");
         driver.findElement(buttonEnter).click();
 
         return this;
     }
 
     public LoginPage clickExitBtn() {
-        log.info("Нажимаем кнопку выйти");
+        log.info("Нажимаем кнопку [Выйти]");
         driver.findElement(buttonExit);
+
+        return this;
+    }
+
+    public LoginPage clickNewUser() {
+        log.info("Нажимаем кнопку [Новый пользователь]");
+        driver.findElement(buttonNewUser).click();
 
         return this;
     }
