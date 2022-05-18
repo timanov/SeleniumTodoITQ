@@ -16,21 +16,19 @@ public class LoginTest extends BaseTest {
 
     public void loginToTodoAdmin() {
         basePage.open(TODO_HOME_PAGE);
-        loginPage.setLogin(LOGIN_ADMIN);
-        loginPage.setPassword(PASSWORD_ADMIN);
-        loginPage.inputLogin();
-        loginPage.inputPassword();
-        loginPage.clickLoginBtn();
-        loginPage.clickExitBtn();
+        loginPage
+                .inputLogin(LOGIN_ADMIN)
+                .inputPassword(PASSWORD_ADMIN)
+                .clickLoginBtn()
+                .clickExitBtn();
     }
 
     public void loginToTodoUser() {
         basePage.open(TODO_HOME_PAGE);
-        loginPage.setLogin(LOGIN_USER);
-        loginPage.setPassword(PASSWORD_USER);
-        loginPage.inputLogin();
-        loginPage.inputPassword();
-        loginPage.clickLoginBtn();
-        loginPage.clickExitBtn();
+        loginPage
+                .inputLogin(LOGIN_ADMIN)
+                .inputPassword(PASSWORD_ADMIN)
+                .clickLoginBtn()
+                .clickExitBtn();
     }
 }

@@ -19,14 +19,14 @@ public class LoginPage extends BasePage {
     private String login = "";
     private String password = "";
 
-    public LoginPage inputLogin() {
+    public LoginPage inputLogin(String login) {
         log.info("Вводим логин");
         driver.findElement(loginField).sendKeys(login);
 
         return this;
     }
 
-    public LoginPage inputPassword() {
+    public LoginPage inputPassword(String password) {
         log.info("Вводим пароль");
         driver.findElement(passwordField).sendKeys(password);
 
@@ -42,7 +42,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage clickExitBtn() {
         log.info("Нажимаем кнопку [Выйти]");
-        driver.findElement(buttonExit);
+        driver.findElement(buttonExit).click();
 
         return this;
     }
@@ -52,14 +52,5 @@ public class LoginPage extends BasePage {
         driver.findElement(buttonNewUser).click();
 
         return this;
-    }
-
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

@@ -11,9 +11,10 @@ import static constans.Constant.Urls.TODO_HOME_PAGE;
 
 public class RegisterTest extends BaseTest {
 
-    private final int login = new Random().nextInt(11) + 222330;
-    private final int password = new Random().nextInt(11) + 22241330;
-    private final String email = "miha344323@mail.ru";
+    private final int login = new Random().nextInt(15340) + 222330;
+    private final int password = new Random().nextInt(14300) + 22241330;
+    private final int randomInt = new Random().nextInt(1500) + 2424;
+    private final String email = "miha6" + randomInt + "43@mail.ru";
 
     @Test
     public void id3() {
@@ -37,12 +38,11 @@ public class RegisterTest extends BaseTest {
     @Step("2. Авторизация в приложении и нажать на кнопку [Выйти]")
     public void loginToTodo() {
         basePage.open(TODO_HOME_PAGE);
-        loginPage.setLogin(String.valueOf(login));
-        loginPage.setPassword(String.valueOf(password));
-        delay(3000);
+
+        delay(6000);
         loginPage
-                .inputLogin()
-                .inputPassword()
+                .inputLogin(String.valueOf(login))
+                .inputPassword(String.valueOf(password))
                 .clickLoginBtn()
                 .clickExitBtn();
     }
