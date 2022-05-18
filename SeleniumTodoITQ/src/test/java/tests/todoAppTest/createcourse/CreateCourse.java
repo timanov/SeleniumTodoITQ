@@ -4,13 +4,15 @@ import io.qameta.allure.Step;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
+import java.util.Random;
+
 import static constans.Constant.Credential.LOGIN_ADMIN;
 import static constans.Constant.Credential.PASSWORD_ADMIN;
 import static constans.Constant.Urls.TODO_HOME_PAGE;
 
 public class CreateCourse extends BaseTest {
 
-    private final String courseName = "К4оурс31456";
+    private final int courseName = new Random().nextInt(11) + 22241330;
 
     @Test
     public void id2() {
@@ -32,11 +34,10 @@ public class CreateCourse extends BaseTest {
     @Step("2. Создание нового курса")
     public void createNewCourse() {
         menuPage.clickCreateAndNewCourse();
-        createCoursePage.inputCoursName(courseName);
+        createCoursePage.inputCoursName(String.valueOf(courseName));
         createCoursePage.clickCreateCourse();
-        delay(3000);
+        delay(2000);
         createCoursePage.alertTrue();
-        delay(1000);
         loginPage.clickExitBtn();
         delay(3000);
     }

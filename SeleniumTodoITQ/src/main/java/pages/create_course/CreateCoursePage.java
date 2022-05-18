@@ -1,8 +1,8 @@
 package pages.create_course;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 import pages.login.LoginPage;
 
@@ -31,9 +31,12 @@ public class CreateCoursePage extends BasePage {
     }
 
     public CreateCoursePage alertTrue() {
-        log.info("Нажимаем на подтверждление алерта");
-        driver.switchTo().alert(); // Подтверждаем alert
+        log.info("Кликаем на alert");
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
 
         return this;
     }
+
+
 }

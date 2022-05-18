@@ -1,1 +1,0 @@
-{"uuid":"c73fcf5a-16d2-42d4-bb36-e1df7b81adb4","name":"SeleniumTodoITQ","children":["e16a2962-026f-4ac4-9d4e-64dfb11fdafb"],"befores":[],"afters":[{"name":"clearCookiesAndLocalStorage","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1652818746251,"stop":1652818746282}],"links":[],"start":1652818733747,"stop":1652818746284}
