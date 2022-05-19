@@ -4,20 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
-import pages.login.LoginPage;
-import pages.menu.MenuPage;
 
 import java.util.List;
-import java.util.logging.Logger;
-
 public class CreateTaskPage extends BasePage {
 
     public CreateTaskPage(WebDriver driver) { super(driver); }
-    private static Logger log = Logger.getLogger(LoginPage.class.getName());
 
-//    private final By buttonDropDownSelectCourse = By.xpath("//*[@id=\"selectedCourse\"]");
     private final By buttonDropDownSelectLecture = By.xpath("//*[@id=\"selectedLecture\"]");
-//    private final By buttonDropDownSelectStatus = By.xpath("//*[@id=\"selectedStatus\"]");
     private final By descriptionField = By.xpath("/html/body/app-root/div/app-todo/form/div[4]/textarea");
     private final By buttonSave = By.xpath("/html/body/app-root/div/app-todo/form/button");
 

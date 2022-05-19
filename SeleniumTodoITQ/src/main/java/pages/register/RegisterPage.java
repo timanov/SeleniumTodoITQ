@@ -3,14 +3,10 @@ package pages.register;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
-import pages.login.LoginPage;
-
-import java.util.logging.Logger;
 
 public class RegisterPage extends BasePage {
 
     public RegisterPage(WebDriver driver) { super(driver); }
-    private static Logger log = Logger.getLogger(LoginPage.class.getName());
 
     private final By loginField = By.xpath("//*[@id=\"email\"]");
     private final By passwordField = By.xpath("//*[@id=\"password\"]");

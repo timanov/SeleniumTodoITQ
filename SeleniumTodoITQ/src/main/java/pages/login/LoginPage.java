@@ -4,12 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
 
-import java.util.logging.Logger;
-
 public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) { super(driver); }
-    private static Logger log = Logger.getLogger(LoginPage.class.getName());
 
     private final By loginField = By.xpath("/html/body/app-root/div/app-login/form/div/input[1]");
     private final By passwordField = By.xpath("/html/body/app-root/div/app-login/form/div/input[2]");

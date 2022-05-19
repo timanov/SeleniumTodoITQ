@@ -4,15 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
-import pages.login.LoginPage;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class MenuPage extends BasePage {
 
     public MenuPage(WebDriver driver) { super(driver); }
-    private static Logger log = Logger.getLogger(LoginPage.class.getName());
 
     private final By buttonCreateAndNewCourse = By.xpath("/html/body/app-root/app-menu/header/nav/ul[2]/li[1]/a");
     private final By buttonCreateNewTask = By.xpath("/html/body/app-root/div/app-list-todos/div[2]/div/button");

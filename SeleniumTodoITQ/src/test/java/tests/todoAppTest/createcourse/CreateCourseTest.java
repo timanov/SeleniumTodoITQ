@@ -41,7 +41,7 @@ public class CreateCourseTest extends BaseTest {
     @Step("2. Создание нового курса")
     public void createNewCourse() {
         menuPage.clickCreateAndNewCourse();
-        createCoursePage.inputCoursName(String.valueOf(courseName));
+        createCoursePage.inputCourseName(String.valueOf(courseName));
         createCoursePage.clickCreateCourse();
         delay(2000);
         createCoursePage.alertTrue();
