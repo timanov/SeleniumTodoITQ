@@ -17,9 +17,9 @@ public class RegisterTest extends BaseTest {
     private final int password = new Random().nextInt(14300) + 22241330;
     private final int randomInt = new Random().nextInt(1500) + 2424;
     private final String email = "miha6" + randomInt + "43@mail.ru";
-    private final String lastName = "Лол";
-    private final String firstName = "Лолп";
-    private final String middleName = "Лмани";
+    private final String lastName = "Алексеевич";
+    private final String firstName = "Михаил";
+    private final String middleName = "Тиманов";
 
 
     @Test
@@ -33,13 +33,14 @@ public class RegisterTest extends BaseTest {
     public void registerToDo(){
         basePage.open(TODO_HOME_PAGE);
         loginPage.clickNewUser();
-        registerPage.inputLoginRegister(String.valueOf(login));
-        registerPage.inputPasswordRegister(String.valueOf(password));
-        registerPage.lastNameFieldRegister(lastName);
-        registerPage.firstNameFieldRegister(firstName);
-        registerPage.middleNameFieldRegister(middleName);
-        registerPage.emailFieldRegister(email);
-        registerPage.clickLoginBtnRegister();
+        registerPage
+                    .inputLoginRegister(String.valueOf(login))
+                    .inputPasswordRegister(String.valueOf(password))
+                    .lastNameFieldRegister(lastName)
+                    .firstNameFieldRegister(firstName)
+                    .middleNameFieldRegister(middleName)
+                    .emailFieldRegister(email)
+                    .clickLoginBtnRegister();
         createCoursePage.alertTrue();
     }
 
