@@ -1,5 +1,6 @@
 package tests.todoAppTest.login;
 
+import io.qameta.allure.Step;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
@@ -14,6 +15,8 @@ public class LoginTest extends BaseTest {
         loginToTodoUser(); //Авторизация под пользователем
     }
 
+
+    @Step("1. Авторизация под админом")
     public void loginToTodoAdmin() {
         basePage.open(TODO_HOME_PAGE);
         loginPage
@@ -23,6 +26,7 @@ public class LoginTest extends BaseTest {
                 .clickExitBtn();
     }
 
+    @Step("2. Авторизация под пользователем")
     public void loginToTodoUser() {
         basePage.open(TODO_HOME_PAGE);
         loginPage
