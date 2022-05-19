@@ -19,6 +19,7 @@ public class CreateCoursePage extends BasePage {
     public CreateCoursePage inputCoursName(String courseName) {
         log.info("Вводим имя курса");
         driver.findElement(nameCourseField).sendKeys(courseName);
+        delay(1000);
 
         return this;
     }
@@ -26,6 +27,7 @@ public class CreateCoursePage extends BasePage {
     public CreateCoursePage clickCreateCourse() {
         log.info("Нажимаем на кнопку [Создать курс]");
         driver.findElement(buttonCreateCourse).click();
+        delay(1000);
 
         return this;
     }
@@ -33,7 +35,8 @@ public class CreateCoursePage extends BasePage {
     public CreateCoursePage alertTrue() {
         log.info("Кликаем на alert");
         Alert alert = driver.switchTo().alert();
-        alert.dismiss();
+        alert.accept();
+        delay(1000);
 
         return this;
     }

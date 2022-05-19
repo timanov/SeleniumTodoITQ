@@ -4,27 +4,30 @@ import io.qameta.allure.Step;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
+import java.sql.*;
 import java.util.Random;
 
 import static constans.Constant.Credential.*;
 import static constans.Constant.Urls.TODO_HOME_PAGE;
 
-public class CreateCourse extends BaseTest {
+public class CreateCourseTest extends BaseTest {
 
     private final int courseName = new Random().nextInt(145635) + 2213320;
+    private final String SELECT_QUERY_GET = "SELECT id FROM course WHERE name = '"+ courseName +"'";
+
+
 
     @Test
-    public void id2() {
+    public void id2() throws SQLException, ClassNotFoundException {
         loginToTodoAdmin(); //Авторизация под админом
         createNewCourse(); //Создание нового курса
         loginToTodoUser(); //Авторизация под пользователем
         searchNewCourse(); //Поиск созданного курса администратором
         searchStudent(); //Проверка выпадающего списка 'Выберите студента'
         searchStatus(); //Проверка выпадающего списка 'Выберите студента'
-
-
-
+        createNewtask(); //Создание нового задания
     }
+
     @Step("1. Авторизация под админом")
     public void loginToTodoAdmin(){
         basePage.open(TODO_HOME_PAGE);
@@ -48,8 +51,8 @@ public class CreateCourse extends BaseTest {
     @Step("3. Авторизация под пользователем")
     public void loginToTodoUser(){
         loginPage
-                .inputLogin(LOGIN_USER)
-                .inputPassword(PASSWORD_USER)
+                .inputLogin(LOGIN_ADMIN)
+                .inputPassword(PASSWORD_ADMIN)
                 .clickLoginBtn();
     }
 
@@ -57,26 +60,45 @@ public class CreateCourse extends BaseTest {
     public void searchNewCourse() {
         menuPage.clickDropDownCourse();
         menuPage.clickDropDownCourseValue(String.valueOf(courseName));
-        delay(5000);
+        menuPage.clickDropDownCourseValue("Все курсы");
+
     }
 
     @Step("5. Проверка выпадающего списка 'Выберите студента'")
     public void searchStudent() {
         menuPage.clickDropDownStudents();
         menuPage.clickDropDownStudentsValue(LOGIN_ADMIN);
+        menuPage.clickDropDownStudentsValue("Все студенты");
 
-        delay(5000);
     }
 
     @Step("6. Проверка выпадающего списка 'Выберите студента'")
     public void searchStatus() {
         menuPage.clickDropDownStatus();
-        menuPage.clickDropDownStatusValue("Все");
+        menuPage.clickDropDownStatusValue("Closed");
         menuPage.clickDropDownStatusValue("Review");
         menuPage.clickDropDownStatusValue("ToDo");
         menuPage.clickDropDownStatusValue("Hold");
-        menuPage.clickDropDownStatusValue("Closed");
+        menuPage.clickDropDownStatusValue("Все");
 
-        delay(5000);
     }
+
+    @Step("7. Создание нового задания")
+    public void createNewtask() throws SQLException, ClassNotFoundException {
+        dbSteps.DbQuerySelect(SELECT_QUERY_GET, "id");
+
+        String SELECT_QUERY_INSERT = "INSERT INTO lecture values ('9','" + courseName + "','Проверка урок23а','" + dbSteps.responseQuery +"')";
+        dbSteps.DbQueryInsert(SELECT_QUERY_INSERT);
+        menuPage.clickNewTask();
+        createTaskPage.clickDropDownCourseValue(String.valueOf(courseName));
+        createTaskPage.clickDropDownLecture();
+        createTaskPage.clickDropDownLectureValue("Проверка");
+        createTaskPage.clickDropDownStatusValue("ToDo");
+        createTaskPage.inputDescription("Привет, это описание задачи12423");
+        createTaskPage.clickSaveTask();
+        createCoursePage.alertTrue();
+        menuPage.clickDropDownStatusValue("ToDo");
+
+    }
+
 }

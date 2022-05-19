@@ -24,6 +24,7 @@ public class RegisterPage extends BasePage {
     public RegisterPage inputLoginRegister(String login) {
         log.info("Вводим логин");
         driver.findElement(loginField).sendKeys(login);
+        delay(1000);
 
         return this;
     }
@@ -31,6 +32,7 @@ public class RegisterPage extends BasePage {
     public RegisterPage inputPasswordRegister(String password) {
         log.info("Вводим пароль");
         driver.findElement(passwordField).sendKeys(password);
+        delay(1000);
 
         return this;
     }
@@ -38,6 +40,7 @@ public class RegisterPage extends BasePage {
     public RegisterPage lastNameFieldRegister (String lastName) {
         log.info("Вводим фамилию");
         driver.findElement(lastNameField).sendKeys(lastName);
+        delay(1000);
 
         return this;
     }
@@ -45,6 +48,7 @@ public class RegisterPage extends BasePage {
     public RegisterPage firstNameFieldRegister (String firstName) {
         log.info("Вводим Имя");
         driver.findElement(firstNameField).sendKeys(firstName);
+        delay(1000);
 
         return this;
     }
@@ -52,6 +56,7 @@ public class RegisterPage extends BasePage {
     public RegisterPage middleNameFieldRegister (String middleName) {
         log.info("Вводим Отчество");
         driver.findElement(middleNameField).sendKeys(middleName);
+        delay(1000);
 
         return this;
     }
@@ -59,6 +64,7 @@ public class RegisterPage extends BasePage {
     public RegisterPage emailFieldRegister (String email) {
         log.info("Вводим Email");
         driver.findElement(emailField).sendKeys(email);
+        delay(1000);
 
         return this;
     }
@@ -66,6 +72,7 @@ public class RegisterPage extends BasePage {
     public RegisterPage clickLoginBtnRegister() {
         log.info("Нажимаем кнопку [Создать]");
         driver.findElement(buttonEnter).click();
+        delay(1000);
 
         return this;
     }

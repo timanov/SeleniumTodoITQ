@@ -1,11 +1,13 @@
 package tests.base;
 
 import common.CommonActions;
+import modules.DbSteps;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import pages.base.BasePage;
 import pages.create_course.CreateCoursePage;
+import pages.create_task.CreateTaskPage;
 import pages.listing.RealtListingPage;
 import pages.login.LoginPage;
 import pages.menu.MenuPage;
@@ -24,6 +26,8 @@ public class BaseTest {
     protected MenuPage menuPage = new MenuPage(driver);
     protected CreateCoursePage createCoursePage = new CreateCoursePage(driver);
     protected RegisterPage registerPage = new RegisterPage(driver);
+    protected CreateTaskPage createTaskPage = new CreateTaskPage(driver);
+    protected DbSteps dbSteps = new DbSteps();
 
 
 //    @AfterSuite

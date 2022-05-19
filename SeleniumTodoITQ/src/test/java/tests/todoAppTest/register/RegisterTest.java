@@ -38,8 +38,6 @@ public class RegisterTest extends BaseTest {
     @Step("2. Авторизация в приложении и нажать на кнопку [Выйти]")
     public void loginToTodo() {
         basePage.open(TODO_HOME_PAGE);
-
-        delay(6000);
         loginPage
                 .inputLogin(String.valueOf(login))
                 .inputPassword(String.valueOf(password))
