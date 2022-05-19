@@ -13,6 +13,7 @@ import static constans.Constant.Urls.TODO_HOME_PAGE;
 public class CreateCourseTest extends BaseTest {
 
     private final int courseName = new Random().nextInt(145635) + 2213320;
+    private final int primaryKey = new Random().nextInt(200) + 224;
     private final String SELECT_QUERY_GET = "SELECT id FROM course WHERE name = '"+ courseName +"'";
 
 
@@ -87,17 +88,19 @@ public class CreateCourseTest extends BaseTest {
     public void createNewtask() throws SQLException, ClassNotFoundException {
         dbSteps.DbQuerySelect(SELECT_QUERY_GET, "id");
 
-        String SELECT_QUERY_INSERT = "INSERT INTO lecture values ('9','" + courseName + "','Проверка урок23а','" + dbSteps.responseQuery +"')";
+        String SELECT_QUERY_INSERT = "INSERT INTO lecture values ('" + primaryKey + "','" + courseName + "','Проверка урок23а','" + dbSteps.responseQuery +"')";
         dbSteps.DbQueryInsert(SELECT_QUERY_INSERT);
         menuPage.clickNewTask();
-        createTaskPage.clickDropDownCourseValue(String.valueOf(courseName));
-        createTaskPage.clickDropDownLecture();
-        createTaskPage.clickDropDownLectureValue("Проверка");
-        createTaskPage.clickDropDownStatusValue("ToDo");
-        createTaskPage.inputDescription("Привет, это описание задачи12423");
-        createTaskPage.clickSaveTask();
+        createTaskPage
+                    .clickDropDownCourseValue(String.valueOf(courseName))
+                    .clickDropDownLecture()
+                    .clickDropDownLectureValue("Проверка")
+                    .clickDropDownStatusValue("ToDo")
+                    .inputDescription("Привет, это описанввпие 234325325")
+                    .clickSaveTask();
         createCoursePage.alertTrue();
         menuPage.clickDropDownStatusValue("ToDo");
+        loginPage.clickExitBtn();
 
     }
 
