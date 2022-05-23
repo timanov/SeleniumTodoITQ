@@ -12,7 +12,7 @@ import static constans.Constant.TimeoutVariable.EXPLICIT_WAIT;
 
 public class BasePage {
     protected WebDriver driver;
-    public static Logger log = Logger.getLogger(LoginPage.class.getName());
+    public static Logger log = Logger.getLogger(BasePage.class.getName());
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
